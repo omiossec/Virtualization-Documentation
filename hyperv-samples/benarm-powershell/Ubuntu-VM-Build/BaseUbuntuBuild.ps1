@@ -80,7 +80,7 @@ rd -Path $tempPath -Recurse -Force
 new-vm $VMName -MemoryStartupBytes 2048mb -VHDPath $vhdx -Generation 1 `
                -SwitchName $virtualSwitchName -Path $vmPath | Out-Null
 set-vm -Name $VMName -ProcessorCount 2
-Set-VMDvdDrive -VMName $VMName -Path $metaDataIso 
+Set-VMDvdDrive -VMName $VMName -Path $metaDataIso  -ControllerNumber 1 -ControllerLocation 0
 Start-VM $VMName
 
 # Open up VMConnect
